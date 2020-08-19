@@ -348,3 +348,4 @@ healthchecksdb
 *.sln
 *.csproj
 /bbepis-BepInExPack.zip
+*.zip

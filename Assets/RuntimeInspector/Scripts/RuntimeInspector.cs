@@ -141,7 +141,7 @@ namespace RuntimeInspectorNamespace
         }
 
         [SerializeField]
-        private RuntimeInspectorSettings[] settings;
+        public RuntimeInspectorSettings[] settings;
 
         [Header("Internal Variables")]
         [SerializeField]
@@ -201,11 +201,9 @@ namespace RuntimeInspectorNamespace
 
             var log = Extensions.logger;
             int x = 0;
-            log.LogInfo($"{x++}");
             drawArea = scrollView.content;
             m_canvas = GetComponentInParent<Canvas>();
 
-            log.LogInfo($"{x++}");
             GameObject poolParentGO = GameObject.Find(POOL_OBJECT_NAME);
             if (poolParentGO == null)
             {
@@ -213,38 +211,24 @@ namespace RuntimeInspectorNamespace
                 DontDestroyOnLoad(poolParentGO);
             }
 
-            log.LogInfo($"{x++}");
             poolParent = poolParentGO.transform;
             aliveInspectors++;
 
-            log.LogInfo($"{x++}");
-            for (int i = 0; i < settings.Length; i++)
+            VariableSet[] hiddenVariablesForTypes = RuntimeInspectorPlugin.HiddenVariables;
+            for (int j = 0; j < hiddenVariablesForTypes.Length; j++)
             {
-                log.LogInfo($"i: {i}");
-                log.LogInfo($"Settings: {(settings == null ? "IsNull" : $"Elements: {settings.Length}")}");
-                log.LogInfo($"Settings[{i}]: {(settings[i] == null ? "IsNull" : "IsDefined")}");
-                log.LogInfo($"Settings[{i}].HiddenVariables: {(settings[i].HiddenVariables == null ? "IsNull" : $"{settings[i].HiddenVariables.Length}")}");
-                VariableSet[] hiddenVariablesForTypes = settings[i].HiddenVariables;
-                for (int j = 0; j < hiddenVariablesForTypes.Length; j++)
-                {
-                    log.LogInfo($"j: {j}");
-                    VariableSet hiddenVariablesSet = hiddenVariablesForTypes[j];
-                    if (hiddenVariablesSet.Init())
-                        hiddenVariables.Add(hiddenVariablesSet);
-                }
-
-                log.LogInfo($"i: {i}");
-                VariableSet[] exposedVariablesForTypes = settings[i].ExposedVariables;
-                for (int j = 0; j < exposedVariablesForTypes.Length; j++)
-                {
-                    log.LogInfo($"j2: {j}");
-                    VariableSet exposedVariablesSet = exposedVariablesForTypes[j];
-                    if (exposedVariablesSet.Init())
-                        exposedVariables.Add(exposedVariablesSet);
-                }
+                VariableSet hiddenVariablesSet = hiddenVariablesForTypes[j];
+                if (hiddenVariablesSet.Init())
+                    hiddenVariables.Add(hiddenVariablesSet);
             }
 
-            log.LogInfo($"{x++}");
+            VariableSet[] exposedVariablesForTypes = RuntimeInspectorPlugin.ExposedVariables;
+            for (int j = 0; j < exposedVariablesForTypes.Length; j++)
+            {
+                VariableSet exposedVariablesSet = exposedVariablesForTypes[j];
+                if (exposedVariablesSet.Init())
+                    exposedVariables.Add(exposedVariablesSet);
+            }
             RuntimeInspectorUtils.IgnoredTransformsInHierarchy.Add(drawArea);
             RuntimeInspectorUtils.IgnoredTransformsInHierarchy.Add(poolParent);
         }
@@ -582,7 +566,7 @@ namespace RuntimeInspectorNamespace
             List<VariableSet> exposedVariablesForType = null;
             for (int i = 0; i < hiddenVariables.Count; i++)
             {
-                if (hiddenVariables[i].type.IsAssignableFrom(type))
+                if (RuntimeInspectorUtils.GetType(hiddenVariables[i].type).IsAssignableFrom(type))
                 {
                     if (hiddenVariablesForType == null)
                         hiddenVariablesForType = new List<VariableSet>() { hiddenVariables[i] };
@@ -593,7 +577,8 @@ namespace RuntimeInspectorNamespace
 
             for (int i = 0; i < exposedVariables.Count; i++)
             {
-                if (exposedVariables[i].type.IsAssignableFrom(type))
+                
+                if (RuntimeInspectorUtils.GetType(exposedVariables[i].type).IsAssignableFrom(type))
                 {
                     if (exposedVariablesForType == null)
                         exposedVariablesForType = new List<VariableSet>() { exposedVariables[i] };

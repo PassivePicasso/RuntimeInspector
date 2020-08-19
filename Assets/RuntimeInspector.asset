@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RuntimeInspector
   m_EditorClassIdentifier: 
   version_number: 1.0.0
-  website_url: 
+  website_url: https://github.com/PassivePicasso/RuntimeInspector
   description: Runtime Inspector for Risk of Rain 2
   dependencies:
   - bbepis-BepInExPack-5.3.1

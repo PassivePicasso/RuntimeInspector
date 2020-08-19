@@ -1,4 +1,12 @@
-= Runtime Inspector & Hierarchy =
+## Runtime Inspector Plugin 
+
+The plugin component of this asset is setup with the inspector as a fly out from the left and right edges of the screen.
+The flyouts are activated with [ and ]
+Holding control while pressing either [ or ] will pin or unpin them.
+
+Information about the Runtime Inspector project can be found below.
+
+## Runtime Inspector & Hierarchy =
 
 Online documentation available at: https://github.com/yasirkula/UnityRuntimeInspector
 E-mail: yasirkula@gmail.com

@@ -3,9 +3,11 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RuntimeInspectorNamespace
 {
+	using RIP = PassivePicasso.RuntimeInspector.RuntimeInspectorPlugin;
 	public class ObjectReferencePicker : SkinnedWindow, IListViewAdapter
 	{
 		private const string SPRITE_ATLAS_PREFIX = "SpriteAtlasTexture-";
@@ -17,7 +19,7 @@ namespace RuntimeInspectorNamespace
 			{
 				if( !m_instance )
 				{
-					m_instance = Instantiate( Resources.Load<ObjectReferencePicker>( "RuntimeInspector/ObjectReferencePicker" ) );
+					m_instance = Instantiate(RIP.Assets.OfType<GameObject>().First(go => go.GetComponent<ObjectReferencePicker>()).GetComponent<ObjectReferencePicker>());
 					m_instance.gameObject.SetActive( false );
 
 					RuntimeInspectorUtils.IgnoredTransformsInHierarchy.Add( m_instance.transform );

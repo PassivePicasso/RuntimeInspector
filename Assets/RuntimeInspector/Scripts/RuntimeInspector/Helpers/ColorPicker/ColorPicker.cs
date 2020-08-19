@@ -1,9 +1,11 @@
 ﻿using System.Globalization;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace RuntimeInspectorNamespace
 {
+	using RIP = PassivePicasso.RuntimeInspector.RuntimeInspectorPlugin;
 	public class ColorPicker : SkinnedWindow
 	{
 		private static ColorPicker m_instance;
@@ -13,7 +15,7 @@ namespace RuntimeInspectorNamespace
 			{
 				if( !m_instance )
 				{
-					m_instance = Instantiate( Resources.Load<ColorPicker>( "RuntimeInspector/ColorPicker" ) );
+					m_instance = Instantiate(RIP.Assets.OfType<GameObject>().First(go => go.GetComponent<ColorPicker>()).GetComponent<ColorPicker>());
 					m_instance.gameObject.SetActive( false );
 
 					RuntimeInspectorUtils.IgnoredTransformsInHierarchy.Add( m_instance.transform );

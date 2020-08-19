@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using RoR2;
+using RuntimeInspectorNamespace;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,13 +17,35 @@ namespace PassivePicasso.RuntimeInspector
     [BepInPlugin("com.PassivePicasso.RuntimeInspector", "RuntimeInspector", "2020.1.0")]
     public class RuntimeInspectorPlugin : BaseUnityPlugin
     {
+        public static readonly VariableSet[] HiddenVariables = new[]
+        {
+            new VariableSet { type = "Object", variables = new string[] { "hideFlags", "useGUILayout", "runInEditMode", "m_CachedPtr", "m_InstanceID", "m_UnityRuntimeErrorString" } },
+            new VariableSet { type = "Renderer", variables = new string[] { "material", "materials" } },
+            new VariableSet { type = "MeshFilter", variables = new string[] { "mesh" } },
+            new VariableSet { type = "Transform", variables = new string[] { "*" } },
+            new VariableSet { type = "Component", variables = new string[] { "name","tag" } },
+            new VariableSet { type = "Collider", variables = new string[] { "material" } },
+            new VariableSet { type = "Collider2D", variables = new string[] { "material" } },
+            new VariableSet { type = "CanvasRenderer", variables = new string[] { "*" } },
+            new VariableSet { type = "Animator", variables = new string[] { "bodyPosition", "bodyRotation", "playbackTime" } }
+        };
+        public static readonly VariableSet[] ExposedVariables = new[]
+        {
+            new VariableSet { type = "Transform", variables = new string[] { "localPosition", "localEulerAngles", "localScale" } }
+        };
+
         class ManifestMap
         {
             public FileInfo File;
             public string[] Content;
         }
 
+        public static IReadOnlyList<UnityEngine.Object> Assets => instance.assets.AsReadOnly();
+
+        static RuntimeInspectorPlugin instance;
+
         private List<GameObject> prefabs = new List<GameObject>();
+        private List<UnityEngine.Object> assets = new List<UnityEngine.Object>();
         private string workingDirectory;
 
         private void Awake()
@@ -31,6 +54,7 @@ namespace PassivePicasso.RuntimeInspector
             workingDirectory = Path.GetDirectoryName(assemblyLocation);
             Logger.LogInfo(workingDirectory);
 
+            instance = this;
             Extensions.logger = Logger;
             RoR2Application.onLoad += Initialize;
         }
@@ -41,8 +65,7 @@ namespace PassivePicasso.RuntimeInspector
             {
                 Logger.LogMessage("Initializing Runtime Inspector");
 
-                var dir = new DirectoryInfo(workingDirectory);
-                LoadAssetBundles(dir);
+                LoadAssetBundles();
 
                 InjectPanel("RuntimeInspectorPanel");
             }
@@ -63,11 +86,19 @@ namespace PassivePicasso.RuntimeInspector
             var safeArea = RoR2Application.instance.mainCanvas.transform;//.transform.Find("SafeArea");
 
             instance.GetComponent<RectTransform>().SetParent(safeArea, false);
+
+            var settings = instance.GetComponentInChildren<RuntimeInspectorNamespace.RuntimeInspector>().settings.First();
+            settings.HiddenVariables = HiddenVariables;
+            settings.ExposedVariables = ExposedVariables;
             instance.SetActive(true);
         }
 
-        private void LoadAssetBundles(DirectoryInfo dir)
+        private void LoadAssetBundles()
         {
+            var dir = new DirectoryInfo(workingDirectory);
+
+            prefabs.Clear();
+            assets.Clear();
             var manifestMaps = dir.GetFiles("*.manifest", SearchOption.AllDirectories)
                                   .Select(manifestFile => new ManifestMap { File = manifestFile, Content = File.ReadAllLines(manifestFile.FullName) })
                                   .Where(mfm => mfm.Content.Any(line => line.StartsWith("AssetBundleManifest:")))
@@ -95,9 +126,9 @@ namespace PassivePicasso.RuntimeInspector
                             var bundlePath = Path.Combine(directory, definitionBundle);
                             var bundle = AssetBundle.LoadFromFile(bundlePath);
                             Logger.LogInfo($"Loaded RuntimeInspector AssetBundle: {bundle.name} with {bundle.GetAllAssetNames().Aggregate((a, b) => $"{a}, {b}")}");
-                            var bundlePrefabs = bundle.LoadAllAssets().OfType<GameObject>().ToArray();
-                            prefabs.AddRange(bundlePrefabs);
-                            Logger.LogInfo($"Loaded RuntimeInspector AssetBundle Prefabs: {bundlePrefabs.Select(bf => bf.name).Aggregate((a, b) => $"{a}, {b}")}");
+                            assets.AddRange(bundle.LoadAllAssets());
+                            prefabs.AddRange(assets.OfType<GameObject>());
+                            Logger.LogInfo($"Loaded RuntimeInspector AssetBundle Prefabs: {assets.Select(bf => bf.name).Aggregate((a, b) => $"{a}, {b}")}");
                         }
                         catch (Exception e) { Logger.LogError(e); }
                 }
