@@ -338,3 +338,13 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Assets/Assemblies
+/Assets/Dependencies
+/Assets/Plugins
+/Library
+/ros_temp
+/Temp
+/ThunderPacks
+*.sln
+*.csproj
+/bbepis-BepInExPack.zip
