@@ -341,6 +341,7 @@ healthchecksdb
 /Assets/Assemblies
 /Assets/Dependencies
 /Assets/Plugins
+/Deployments
 /Library
 /ros_temp
 /Temp
