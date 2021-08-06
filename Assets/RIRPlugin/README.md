@@ -18,6 +18,7 @@ Runtime Inspector for BepInEx is a BepInPlugin that configures and launches [yas
 Layout is handled using [yasirkula's UnityDynamicPanels](https://github.com/yasirkula/UnityDynamicPanels) for docking and rafting of Inspector and Hierarchy
 
 # Changes
+### 2.0.3 - Fix ShowInspector Key toggling Inspector invisibility while keyboard focus is in a text box
 
 ### 2.0.2 - Add default config file
 
