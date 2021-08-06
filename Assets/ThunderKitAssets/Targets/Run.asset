@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3695521163bdd74fa2845bbd3438240, type: 3}
+  m_Name: Run
+  m_EditorClassIdentifier: 
+  Data:
+  - {fileID: 114393116668011838}
+  - {fileID: 114068012366377878}
+  - {fileID: 114525731783530820}
+  manifest: {fileID: 11400000, guid: 3975124bd67c45347ae217760ff77cf9, type: 2}
+--- !u!114 &114068012366377878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03063c7a6ec04cc4c82c75cf9bcc8db8, type: 3}
+  m_Name: Copy
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  Active: 0
+  PerManifest: 0
+  ExcludedManifests: []
+  Recursive: 0
+  SourceRequired: 1
+  Source: <ConfigFile>
+  Destination: <RI_Config_Output>
+--- !u!114 &114393116668011838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50df4f9027e15e04b931a8d460fb22c5, type: 3}
+  m_Name: ExecutePipeline
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  Active: 1
+  OverrideManifest: 1
+  executePipeline: {fileID: 11400000, guid: f8fc590149d234f4fbe685a6a2dac8c4, type: 2}
+--- !u!114 &114525731783530820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f65d4371163fb4695da79ab8df0e84, type: 3}
+  m_Name: ExecuteProcess
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  Active: 1
+  workingDirectory: <BepInExPackDestination>
+  executable: <GameExecutable>
+  arguments:
+  - --doorstop-enable true
+  - --doorstop-target "<PWD>/<BepInEx.Preloader.dll>"

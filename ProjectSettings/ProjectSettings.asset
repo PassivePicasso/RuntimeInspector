@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 80e87672cac5d8843b4a85f0dc26064f
+  productGUID: 6bb6441d88ba91e45b029c5b01d63438
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: RuntimeInspector
+  productName: RuntimeInspectorReturns
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -531,7 +531,16 @@ PlayerSettings:
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: thunderkit
+    7: thunderkit;bbepis-bepinexpack
+    13: thunderkit;bbepis-bepinexpack
+    19: thunderkit;bbepis-bepinexpack
+    21: thunderkit;bbepis-bepinexpack
+    25: thunderkit;bbepis-bepinexpack
+    26: thunderkit;bbepis-bepinexpack
+    27: thunderkit;bbepis-bepinexpack
+    28: thunderkit;bbepis-bepinexpack
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
@@ -540,7 +549,8 @@ PlayerSettings:
   allowUnsafeCode: 0
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
-  apiCompatibilityLevelPerPlatform: {}
+  apiCompatibilityLevelPerPlatform:
+    Standalone: 6
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Template_3D

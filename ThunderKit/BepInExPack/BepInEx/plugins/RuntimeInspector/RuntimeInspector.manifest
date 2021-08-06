@@ -1,0 +1,11 @@
+ManifestFileVersion: 0
+CRC: 2277574541
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: rirscenebundle
+      Dependencies:
+        Dependency_0: runtimeinspector
+    Info_1:
+      Name: runtimeinspector
+      Dependencies: {}

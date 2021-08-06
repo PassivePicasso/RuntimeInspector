@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e563561e08b6a3642a487177f5cfbb37, type: 3}
+  m_Name: RIRPlugin
+  m_EditorClassIdentifier: 
+  Data:
+  - {fileID: 114211852988908172}
+  - {fileID: 114107831304456238}
+  - {fileID: 114431642618062350}
+  - {fileID: 114588236817145788}
+  - {fileID: 114890240983601806}
+  - {fileID: 114214410660174234}
+  identity: {fileID: 114211852988908172}
+--- !u!114 &114107831304456238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7e13dda513544419a89926bd12ad8a, type: 3}
+  m_Name: AssemblyDefinitions
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  StagingPaths:
+  - <ManifestPluginStaging>
+  definitions:
+  - {fileID: 5897886265953266890, guid: 5350fc5f2dee5894c94015dbe725cf05, type: 3}
+  - {fileID: 5897886265953266890, guid: 96bc73b17d0751d498a0d1ea434cc7b8, type: 3}
+  - {fileID: 5897886265953266890, guid: 47588e3d37f573d458b0eaa6cc8109c2, type: 3}
+--- !u!114 &114211852988908172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22bb7fd1d3b56a48bc52f8e407901d6, type: 3}
+  m_Name: ManifestIdentity
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  StagingPaths:
+  - <ManifestPluginStaging>
+  Author: Twiner
+  Name: RuntimeInspector
+  Icon: {fileID: 2800000, guid: 855aa3e1e685a2f4e86549ee6610d143, type: 3}
+  Description: Runtime Inspector Integration for Risk of Rain 2
+  Version: 2.0.2
+  Dependencies:
+  - {fileID: 11400000, guid: 6893422731aa6d67012f5f4d8209c304, type: 2}
+--- !u!114 &114214410660174234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
+  m_Name: Files
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  StagingPaths:
+  - <ManifestConfigStaging>
+  files:
+  - {fileID: 102900000, guid: d3f73b0c5b93b4740bff3afacb7f40de, type: 3}
+--- !u!114 &114431642618062350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d1008b78cb6e846889b7778282fbef, type: 3}
+  m_Name: AssetBundleDefinitions
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  StagingPaths:
+  - <ManifestPluginStaging>
+  assetBundles:
+  - assetBundleName: RIRSceneBundle
+    assets:
+    - {fileID: 102900000, guid: 46564270712a9dd4db2bd71e111aa64d, type: 3}
+  - assetBundleName: RuntimeInspector
+    assets:
+    - {fileID: 102900000, guid: 2e85b56eeb74ca74d9cfc5a72750d0d2, type: 3}
+    - {fileID: 154636, guid: af8ebf3eda3f41146bb902219c03964f, type: 3}
+    - {fileID: 102900000, guid: 5079453829fe2534d88e9cc3d12392fa, type: 3}
+    - {fileID: 102900000, guid: deac3e7702922a042b27a242e52b1337, type: 3}
+    - {fileID: 102900000, guid: 4157ac06ec78167409305f4a5066af15, type: 3}
+    - {fileID: 102900000, guid: 87cdf6f25a43c134fbc4d0c50c219916, type: 3}
+    - {fileID: 102900000, guid: 7bb31ae5de65d564cbfc35d2bfbfeb1c, type: 3}
+    - {fileID: 11400000, guid: 4a8fe947d3fe11d4295482519cc14b03, type: 2}
+    - {fileID: 1292172246486946, guid: 4d8c6c9fba0e46f489b21fd7d92d739d, type: 3}
+    - {fileID: 1530605722893704, guid: d39ad26c554f1a04d870956f7fac6fd8, type: 3}
+    - {fileID: 102900000, guid: 022c852bc988849428da3536bc06773d, type: 3}
+    - {fileID: 102900000, guid: a10da257b412cea428dfd530dbca2051, type: 3}
+    - {fileID: 102900000, guid: dec2ff6bcde25404e8b08e47281324f4, type: 3}
+--- !u!114 &114588236817145788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a82fec78ebc734d9ad1346cd40b5f9, type: 3}
+  m_Name: ThunderstoreData
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  StagingPaths:
+  - <ManifestStagingRoot>
+  url: https://github.com/PassivePicasso/RuntimeInspector
+--- !u!114 &114890240983601806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
+  m_Name: Files
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  StagingPaths:
+  - <ManifestStagingRoot>
+  files:
+  - {fileID: 4900000, guid: cd520becf080f0847ab8350023f68c8c, type: 3}
+  - {fileID: 4900000, guid: c5da80ddb3e305648acf94f8254bbe07, type: 3}
+  - {fileID: 4900000, guid: bd20edc15d6b63c468da09ded7ed8ed5, type: 3}
+  - {fileID: 4900000, guid: b4c9d4cce37f90245b8245ebb2c0cc9e, type: 3}
+  - {fileID: 4900000, guid: 944ea68bdf64b884c8c940c874e0454d, type: 3}
+  - {fileID: 2800000, guid: 855aa3e1e685a2f4e86549ee6610d143, type: 3}
