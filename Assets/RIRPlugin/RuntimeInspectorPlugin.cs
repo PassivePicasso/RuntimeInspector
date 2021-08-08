@@ -39,8 +39,8 @@ namespace PassivePicasso.RuntimeInspectorPlugin
         private void Awake()
         {
             ShowInspectorKey = Config.Bind("Key Bindings", "ShowInspector", KeyCode.I, "Keycode needed to press for runtime inspector window to appear");
-            DefaultInspectorWidth = Config.Bind("Dock Settings", nameof(DefaultInspectorWidth), 200f, "Default width of the Inspector Panels");
-            DefaultHierarchyWidth = Config.Bind("Dock Settings", nameof(DefaultHierarchyWidth), 200f, "Default width of the Hierarchy Panels");
+            DefaultInspectorWidth = Config.Bind("Dock Settings", nameof(DefaultInspectorWidth), 300f, "Default width of the Inspector Panels");
+            DefaultHierarchyWidth = Config.Bind("Dock Settings", nameof(DefaultHierarchyWidth), 300f, "Default width of the Hierarchy Panels");
         }
 
         private void Start()
@@ -68,8 +68,16 @@ namespace PassivePicasso.RuntimeInspectorPlugin
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
             SceneManager.LoadScene(inspectorScenePath, LoadSceneMode.Additive);
         }
+
+        bool initialized = false;
         private void Update()
         {
+            if (canvas && canvas.gameObject.activeSelf && !initialized)
+            {
+                inspetorPanel.ResizeTo(new Vector2(DefaultInspectorWidth.Value, Screen.currentResolution.height));
+                hierarchyPanel.ResizeTo(new Vector2(DefaultHierarchyWidth.Value, Screen.currentResolution.height));
+                initialized = true;
+            }
             if (Input.GetKeyDown(ShowInspectorKey.Value))
             {
                 if (canvas)
@@ -77,6 +85,12 @@ namespace PassivePicasso.RuntimeInspectorPlugin
                     var inputIsFocused = canvas.GetComponentsInChildren<InputField>().Any(input => input.isFocused);
                     if (!inputIsFocused)
                         canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
+
+                    if (!inspetorPanel)
+                        inspetorPanel = ConfigureTab(inspector.gameObject, Direction.Right, "Inspector", out inspectorTab);
+                    if (!hierarchyPanel)
+                        hierarchyPanel = ConfigureTab(hierarchy.gameObject, Direction.Left, "Hierarchy", out hierarchyTab);
+
                 }
             }
         }

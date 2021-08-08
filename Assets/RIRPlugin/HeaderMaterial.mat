@@ -28,7 +28,7 @@ Material:
     - _IsAlphaMasked: 0
     - _IsSpriteVisible: 0
     - _MakeDesaturated: 0
-    - _Radius: 2
+    - _Radius: 8
     - _Size: 3
     - _Stencil: 0
     - _StencilComp: 8
@@ -39,4 +39,4 @@ Material:
     m_Colors:
     - _AdditiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _MultiplyColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OverlayColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0.47058824}
+    - _OverlayColor: {r: 0.15472585, g: 0.30975273, b: 0.5377358, a: 0.5921569}

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: TabMaterial
   m_Shader: {fileID: 4800000, guid: b62a30f994f703f4880e3d652cd9f821, type: 3}
-  m_ShaderKeywords: IS_BLUR_ALPHA_MASKED _ALPHAPREMULTIPLY_ON
+  m_ShaderKeywords: IS_BLUR_ALPHA_MASKED IS_SPRITE_VISIBLE _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -26,9 +26,9 @@ Material:
     m_Floats:
     - _ColorMask: 15
     - _IsAlphaMasked: 1
-    - _IsSpriteVisible: 0
+    - _IsSpriteVisible: 1
     - _MakeDesaturated: 0
-    - _Radius: 5
+    - _Radius: 8
     - _Size: 3
     - _Stencil: 0
     - _StencilComp: 8
@@ -39,4 +39,4 @@ Material:
     m_Colors:
     - _AdditiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _MultiplyColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OverlayColor: {r: 0.2731399, g: 0.51976055, b: 0.5849056, a: 0.9098039}
+    - _OverlayColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0.5019608}
