@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 namespace PassivePicasso.RuntimeInspectorPlugin
 {
-    [BepInPlugin("com.PassivePicasso.RuntimeInspectorPlugin", "RuntimeInspectorPlugin", "2.0.3")]
+    [BepInPlugin("com.PassivePicasso.RuntimeInspectorPlugin", "RuntimeInspectorPlugin", "3.0.0")]
     public class RuntimeInspectorPlugin : BaseUnityPlugin
     {
         static FieldInfo m_typeField = typeof(VariableSet).GetField("m_type", BindingFlags.Instance | BindingFlags.NonPublic);

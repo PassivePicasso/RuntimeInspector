@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9af1c6015733a42be940cc462aa7ed, type: 3}
+  m_Name: Log 2
+  m_EditorClassIdentifier: 
+  pipeline: {fileID: 11400000, guid: 6b8c1bcaeef8cb844a42453f090f2e5f, type: 2}
+  creationDate:
+    ticks: 637822573744136651
+  entries:
+  - logLevel: 0
+    internalTime:
+      ticks: 637822573746690791
+    message: '[Run](assetlink://Assets%2fThunderKitAssets%2fTargets%2fRun.asset)
+      Finished execution'
+    context: []
+  - logLevel: 0
+    internalTime:
+      ticks: 637822573746580765
+    message: '[Run(0 - Copy)](assetlink://Assets%2fThunderKitAssets%2fTargets%2fRun.asset)[BepInExPack](assetlink://Packages%2fbbepis-bepinexpack%2fBepInExPack.asset)
+      ``` <ConfigFile> ``` to ``` <RI_Config_Output> ```
+
+      
+
+      
+
+      ```
+      Assets/ThunderKitAssets/com.PassivePicasso.RuntimeInspectorPlugin.cfg ``` to
+      ``` ThunderKit/BepInExPack/BepInEx/config/com.PassivePicasso.RuntimeInspectorPlugin.cfg
+      ```'
+    context: []
+  - logLevel: 0
+    internalTime:
+      ticks: 637822573744700338
+    message: '[Run(0 - Copy)](assetlink://Assets%2fThunderKitAssets%2fTargets%2fRun.asset)[BepInExPack](assetlink://Packages%2fbbepis-bepinexpack%2fBepInExPack.asset)
+      Execute Job'
+    context: []
+  - logLevel: 0
+    internalTime:
+      ticks: 637822573744640325
+    message: '[Run(0 - Copy)](assetlink://Assets%2fThunderKitAssets%2fTargets%2fRun.asset)[BepInExPack](assetlink://Packages%2fbbepis-bepinexpack%2fBepInExPack.asset)
+      Clearing PipelineJob error states'
+    context: []
+  - logLevel: 0
+    internalTime:
+      ticks: 637822573744590318
+    message: '[Run(0 - Copy)](assetlink://Assets%2fThunderKitAssets%2fTargets%2fRun.asset)[BepInExPack](assetlink://Packages%2fbbepis-bepinexpack%2fBepInExPack.asset)
+      Execute Pipeline'
+    context: []

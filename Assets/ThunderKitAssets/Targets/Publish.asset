@@ -35,7 +35,8 @@ MonoBehaviour:
   - {fileID: 114713050676357034}
   - {fileID: 114110618437809084}
   - {fileID: 114912377694705994}
-  manifest: {fileID: 11400000, guid: 3975124bd67c45347ae217760ff77cf9, type: 2}
+  QuickAccess: 1
+  manifest: {fileID: 11400000, guid: 38cdc368422e5e6286036a7304e115c4, type: 2}
 --- !u!114 &114110618437809084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -48,12 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8808e815b3ce9c94e9552cb1dee9e305, type: 3}
   m_Name: Zip
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
   Active: 1
   PerManifest: 1
   ExcludedManifests:
-  - {fileID: 11400000, guid: 6893422731aa6d67012f5f4d8209c304, type: 2}
+  - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
   ArchiveType: 1
   Source: <ManifestStagingRoot>
   Output: <ManifestStagingRoot>.zip
@@ -69,11 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50df4f9027e15e04b931a8d460fb22c5, type: 3}
   m_Name: ExecutePipeline
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
   Active: 1
   OverrideManifest: 1
-  executePipeline: {fileID: 11400000, guid: 30a8337d921badf459bb465d908c46ce, type: 2}
+  targetpipeline: {fileID: 11400000, guid: 30a8337d921badf459bb465d908c46ce, type: 2}
 --- !u!114 &114713050676357034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,8 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc52389347ae9634bbb7e74eba886518, type: 3}
   m_Name: StageThunderstoreManifest
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
   Active: 1
 --- !u!114 &114912377694705994
 MonoBehaviour:
@@ -101,8 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f65d4371163fb4695da79ab8df0e84, type: 3}
   m_Name: ExecuteProcess
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
   Active: 1
   workingDirectory: 
   executable: <PWD>/<StagingRoot>

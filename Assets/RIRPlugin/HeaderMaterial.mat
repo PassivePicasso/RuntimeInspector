@@ -39,4 +39,4 @@ Material:
     m_Colors:
     - _AdditiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _MultiplyColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OverlayColor: {r: 0.15472585, g: 0.30975273, b: 0.5377358, a: 0.5921569}
+    - _OverlayColor: {r: 0.15472585, g: 0.30975273, b: 0.5377358, a: 1}
