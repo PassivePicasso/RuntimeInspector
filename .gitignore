@@ -341,7 +341,7 @@ ASALocalRun/
 healthchecksdb
 /Assets/Assemblies
 /Assets/Dependencies
-/Assets/Plugins
+/Assets/ThunderKitSettings/Logs
 /Deployments
 /Library
 /ros_temp
